@@ -24,13 +24,14 @@ class ProfileImages extends StatelessWidget {
       height: 120*imagePaths.length/2,
       width: double.infinity,
       child: GridView.builder(
+        padding: EdgeInsets.zero,
         shrinkWrap: true,
         physics: NeverScrollableScrollPhysics(),
         gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
           crossAxisCount: 3, // Adjust the number of columns as needed
           crossAxisSpacing: 8.0,
           mainAxisSpacing: 8.0,
-          childAspectRatio: 1
+          childAspectRatio: 0.8
 
         ),
         itemCount: imagePaths.length,

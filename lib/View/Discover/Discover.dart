@@ -5,6 +5,8 @@ import 'package:flutter_svg/svg.dart';
 
 import '../../Utils/Widgets/CustomWidgets.dart';
 import '../../const/Colors.dart';
+import '../Match/PerfectMatch.dart';
+import '../ViewProfile/ViewProfile.dart';
 
 class Discover extends StatelessWidget {
   Discover({Key? key}) : super(key: key);
@@ -74,11 +76,11 @@ class Discover extends StatelessWidget {
       ),
       body: Column(
         children: [
-          SizedBox(height: MediaQuery.of(context).size.height * 0.12),
+          SizedBox(height: MediaQuery.of(context).size.height * 0.1),
           Center(
             child: Container(
-              height: MediaQuery.of(context).size.height * 0.44,
-              width: MediaQuery.of(context).size.width * 0.7,
+              height: MediaQuery.of(context).size.height * 0.5,
+              width: MediaQuery.of(context).size.width * 0.75,
               child: CardSwiper(
                 controller: controller,
                 cardsCount: candidates.length,
@@ -94,63 +96,71 @@ class Discover extends StatelessWidget {
                   verticalThresholdPercentage,
                 ) {
                   // Use Image.asset to display the image
-                  return Container(
-                    height: 200,
-                    width: 200,
-                    decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(15),
-                        image: DecorationImage(
-                            image: AssetImage(
-                              candidates[index],
-                            ),
-                            fit: BoxFit.cover)),
-                    // child: Image.asset(
-                    //   candidates[index],
-                    //   fit: BoxFit.cover,
-                    // ),
-                    child: horizontalThresholdPercentage > 0
-                        ? Align(
-                            alignment: Alignment.center,
-                            child: CircularButton('assets/fillheart.svg',
-                                ColorValues.pinkmain, () {}))
-                        : horizontalThresholdPercentage < 0
-                            ? Align(
-                                alignment: Alignment.center,
-                                child: CircularButton('assets/cancel.svg',
-                                    ColorValues.white, () {}))
-                            : Align(
-                      alignment: Alignment.bottomLeft,
-                              child: Padding(
-                                padding: const EdgeInsets.all(8.0),
-                                child: Column(
-
-                                    children: [
-                                      Spacer(),
-                                      Text('Maria Barnett, twenty-four',style: TextStyle(color: ColorValues.white,fontSize: 14),),
-                                      Padding(
-                                        padding: const EdgeInsets.only(left: 11.0),
-                                        child: Row(
-                                          mainAxisAlignment: MainAxisAlignment.start,
-                                          children: [
-                                            Transform.scale(
-                                              scale: 1.3,
-                                              child: SvgPicture.asset('assets/location.svg'),
-                                            ),
-                                            SizedBox(
-                                              width: 5,
-                                            ),
-                                            Text(
-                                              'France',
-                                              style: TextStyle(color: ColorValues.grey, fontSize: 11),
-                                            ),
-                                          ],
-                                        ),
-                                      ),
-
-                                    ],
-                                  ),
+                  return InkWell(
+                    onTap: (){
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (context) => ViewProfile()),
+                      );
+                    },
+                    child: Container(
+                      height: 200,
+                      width: 200,
+                      decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(15),
+                          image: DecorationImage(
+                              image: AssetImage(
+                                candidates[index],
                               ),
-                            ),
+                              fit: BoxFit.cover)),
+                      // child: Image.asset(
+                      //   candidates[index],
+                      //   fit: BoxFit.cover,
+                      // ),
+                      child: horizontalThresholdPercentage > 0
+                          ? Align(
+                              alignment: Alignment.center,
+                              child: CircularButton('assets/fillheart.svg',
+                                  ColorValues.pinkmain, () {}))
+                          : horizontalThresholdPercentage < 0
+                              ? Align(
+                                  alignment: Alignment.center,
+                                  child: CircularButton('assets/cancel.svg',
+                                      ColorValues.white, () {}))
+                              : Align(
+                        alignment: Alignment.bottomLeft,
+                                child: Padding(
+                                  padding: const EdgeInsets.all(8.0),
+                                  child: Column(
+
+                                      children: [
+                                        Spacer(),
+                                        Text('Maria Barnett, twenty-four',style: TextStyle(color: ColorValues.white,fontSize: 14),),
+                                        Padding(
+                                          padding: const EdgeInsets.only(left: 11.0),
+                                          child: Row(
+                                            mainAxisAlignment: MainAxisAlignment.start,
+                                            children: [
+                                              Transform.scale(
+                                                scale: 1.3,
+                                                child: SvgPicture.asset('assets/location.svg'),
+                                              ),
+                                              SizedBox(
+                                                width: 5,
+                                              ),
+                                              Text(
+                                                'France',
+                                                style: TextStyle(color: ColorValues.grey, fontSize: 11),
+                                              ),
+                                            ],
+                                          ),
+                                        ),
+
+                                      ],
+                                    ),
+                                ),
+                              ),
+                    ),
                   );
                 },
               ),

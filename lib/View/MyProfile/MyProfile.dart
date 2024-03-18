@@ -14,7 +14,8 @@ class MyProfile extends StatefulWidget {
   _MyProfileState createState() => _MyProfileState();
 }
 
-class _MyProfileState extends State<MyProfile> with SingleTickerProviderStateMixin{
+class _MyProfileState extends State<MyProfile>
+    with SingleTickerProviderStateMixin {
   int _selectedTabIndex = 0;
 
   late TabController _tabController;
@@ -41,163 +42,166 @@ class _MyProfileState extends State<MyProfile> with SingleTickerProviderStateMix
               backgroundColor: ColorValues.lightpink,
               leading: roundedBorder_button('assets/menu.svg', () {}),
               title: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: [
-            SizedBox(),
-            Text(
-              'My Profile',
-              style: TextStyle(
-                  color: ColorValues.grey,
-                  fontSize: 22,
-                  fontWeight: FontWeight.w700),
-            ),
-            roundedBorder_button('assets/edit.svg', () {}),
-          ],
-        ),
-
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  SizedBox(),
+                  Text(
+                    'My Profile',
+                    style: TextStyle(
+                        color: ColorValues.grey,
+                        fontSize: 22,
+                        fontWeight: FontWeight.w700),
+                  ),
+                  roundedBorder_button('assets/edit.svg', () {}),
+                ],
+              ),
               flexibleSpace: FlexibleSpaceBar(
                 background: Column(
-          children: [
-            SizedBox(
-              height: MediaQuery.of(context).size.height * 0.12,
-            ),
-            Center(
-              child: Container(
-                height: 95,
-                width: 95,
-                child: Stack(
                   children: [
-                    CircularImage('assets/model.jpg', 95, 95),
-                    Align(
-                      alignment: Alignment.bottomRight,
-                      child: InkWell(
-                        onTap: () {},
-                        child: Container(
-                          height: 24,
-                          width: 24,
-                          decoration: BoxDecoration(
-                            color: ColorValues.pinkmain,
-                            shape: BoxShape.circle,
-                          ),
-                          child: Center(
-                            child: Icon(
-                              CupertinoIcons.camera_fill,
-                              size: 12,
-                              color: Colors.white,
+                    SizedBox(
+                      height: MediaQuery.of(context).size.height * 0.12,
+                    ),
+                    Center(
+                      child: Container(
+                        height: 95,
+                        width: 95,
+                        child: Stack(
+                          children: [
+                            CircularImage('assets/model.jpg', 95, 95),
+                            Align(
+                              alignment: Alignment.bottomRight,
+                              child: InkWell(
+                                onTap: () {},
+                                child: Container(
+                                  height: 24,
+                                  width: 24,
+                                  decoration: BoxDecoration(
+                                    color: ColorValues.pinkmain,
+                                    shape: BoxShape.circle,
+                                  ),
+                                  child: Center(
+                                    child: Icon(
+                                      CupertinoIcons.camera_fill,
+                                      size: 12,
+                                      color: Colors.white,
+                                    ),
+                                  ),
+                                ),
+                              ),
                             ),
-                          ),
+                          ],
                         ),
                       ),
                     ),
+                    SizedBox(
+                      height: MediaQuery.of(context).size.height * 0.02,
+                    ),
+                    Text(
+                      'Stella',
+                      style: TextStyle(
+                          color: ColorValues.grey,
+                          fontWeight: FontWeight.w600,
+                          fontSize: 17),
+                    ),
+                    SizedBox(
+                      height: MediaQuery.of(context).size.height * 0.01,
+                    ),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Transform.scale(
+                          scale: 1.3,
+                          child: SvgPicture.asset('assets/location.svg'),
+                        ),
+                        SizedBox(
+                          width: 5,
+                        ),
+                        Text(
+                          'France',
+                          style:
+                              TextStyle(color: ColorValues.grey, fontSize: 13),
+                        ),
+                      ],
+                    ),
+                    SizedBox(
+                      height: MediaQuery.of(context).size.height * 0.03,
+                    ),
+                    // Row(
+                    //   mainAxisAlignment: MainAxisAlignment.center,
+                    //   children: [
+                    //     InkWell(
+                    //       onTap: () {
+                    //         setState(() {
+                    //           _selectedTabIndex = 0;
+                    //         });
+                    //       },
+                    //       child: Text(
+                    //         'Details',
+                    //         style: TextStyle(
+                    //             color: _selectedTabIndex == 0
+                    //                 ? ColorValues.pinkmain
+                    //                 : ColorValues.grey,
+                    //             fontWeight: FontWeight.w700,
+                    //             fontSize: 17),
+                    //       ),
+                    //     ),
+                    //     SizedBox(
+                    //       width: MediaQuery.of(context).size.width * 0.2,
+                    //     ),
+                    //     Container(
+                    //       height: 25,
+                    //       width: 3,
+                    //       color: ColorValues.grey,
+                    //     ),
+                    //     SizedBox(
+                    //       width: MediaQuery.of(context).size.width * 0.2,
+                    //     ),
+                    //     InkWell(
+                    //       onTap: () {
+                    //         setState(() {
+                    //           _selectedTabIndex = 1;
+                    //         });
+                    //       },
+                    //       child: Text(
+                    //         'Images',
+                    //         style: TextStyle(
+                    //             color: _selectedTabIndex == 1
+                    //                 ? ColorValues.pinkmain
+                    //                 : ColorValues.grey,
+                    //             fontWeight: FontWeight.w700,
+                    //             fontSize: 17),
+                    //       ),
+                    //     ),
+                    //   ],
+                    // ),
                   ],
                 ),
-              ),
-            ),
-            SizedBox(
-              height: MediaQuery.of(context).size.height * 0.02,
-            ),
-            Text(
-              'Stella',
-              style: TextStyle(
-                  color: ColorValues.grey,
-                  fontWeight: FontWeight.w600,
-                  fontSize: 17),
-            ),
-            SizedBox(
-              height: MediaQuery.of(context).size.height * 0.01,
-            ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Transform.scale(
-                  scale: 1.3,
-                  child: SvgPicture.asset('assets/location.svg'),
-                ),
-                SizedBox(
-                  width: 5,
-                ),
-                Text(
-                  'France',
-                  style: TextStyle(color: ColorValues.grey, fontSize: 13),
-                ),
-              ],
-            ),
-            SizedBox(
-              height: MediaQuery.of(context).size.height * 0.03,
-            ),
-            // Row(
-            //   mainAxisAlignment: MainAxisAlignment.center,
-            //   children: [
-            //     InkWell(
-            //       onTap: () {
-            //         setState(() {
-            //           _selectedTabIndex = 0;
-            //         });
-            //       },
-            //       child: Text(
-            //         'Details',
-            //         style: TextStyle(
-            //             color: _selectedTabIndex == 0
-            //                 ? ColorValues.pinkmain
-            //                 : ColorValues.grey,
-            //             fontWeight: FontWeight.w700,
-            //             fontSize: 17),
-            //       ),
-            //     ),
-            //     SizedBox(
-            //       width: MediaQuery.of(context).size.width * 0.2,
-            //     ),
-            //     Container(
-            //       height: 25,
-            //       width: 3,
-            //       color: ColorValues.grey,
-            //     ),
-            //     SizedBox(
-            //       width: MediaQuery.of(context).size.width * 0.2,
-            //     ),
-            //     InkWell(
-            //       onTap: () {
-            //         setState(() {
-            //           _selectedTabIndex = 1;
-            //         });
-            //       },
-            //       child: Text(
-            //         'Images',
-            //         style: TextStyle(
-            //             color: _selectedTabIndex == 1
-            //                 ? ColorValues.pinkmain
-            //                 : ColorValues.grey,
-            //             fontWeight: FontWeight.w700,
-            //             fontSize: 17),
-            //       ),
-            //     ),
-            //   ],
-            // ),
-
-          ],
-        ),
               ),
             ),
             SliverPersistentHeader(
               delegate: _MyTabBarDelegate(
                 TabBar(
-                  controller: _tabController, // Provide the TabController here
-indicatorWeight: 0.1,
-                  indicator: BoxDecoration(), // Empty decoration to hide the indicator
+                  controller: _tabController,
+                  // Provide the TabController here
+                  indicatorWeight: 0.1,
+                  indicator: BoxDecoration(),
+                  // Empty decoration to hide the indicator
                   indicatorColor: ColorValues.pinkmain,
                   labelColor: ColorValues.pinkmain,
-                  labelStyle: TextStyle(fontWeight: FontWeight.w700,
-                      fontSize: 17),
+                  labelStyle:
+                      TextStyle(fontWeight: FontWeight.w700, fontSize: 17),
                   unselectedLabelColor: ColorValues.grey,
                   tabs: [
-
                     Row(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-                        SizedBox(width: MediaQuery.of(context).size.width*0.106,),
-
+                        SizedBox(
+                          width: MediaQuery.of(context).size.width * 0.106,
+                        ),
                         Tab(text: 'Details'),
-SizedBox(width: MediaQuery.of(context).size.width*0.15,),
+                        SizedBox(
+                          width: MediaQuery.of(context).size.width * 0.15,
+                        ),
                         Container(
                           height: 25,
                           width: 3,
@@ -205,16 +209,18 @@ SizedBox(width: MediaQuery.of(context).size.width*0.15,),
                         ),
                       ],
                     ),
-                                        Row(
-                                          mainAxisAlignment: MainAxisAlignment.center,
-                                          children: [
-                                            SizedBox(width: MediaQuery.of(context).size.width*0.08,),
-
-                                            Tab(text: 'Images'),
-                                            SizedBox(width: MediaQuery.of(context).size.width*0.15,),
-
-                                          ],
-                                        ),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        SizedBox(
+                          width: MediaQuery.of(context).size.width * 0.08,
+                        ),
+                        Tab(text: 'Images'),
+                        SizedBox(
+                          width: MediaQuery.of(context).size.width * 0.15,
+                        ),
+                      ],
+                    ),
                   ],
                   onTap: (index) {
                     setState(() {
@@ -247,6 +253,7 @@ class _MyTabBarDelegate extends SliverPersistentHeaderDelegate {
 
   @override
   double get minExtent => tabBar.preferredSize.height;
+
   @override
   double get maxExtent => tabBar.preferredSize.height;
 

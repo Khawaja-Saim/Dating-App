@@ -194,6 +194,7 @@ class SignUp extends StatelessWidget {
                           SizedBox(
                             height: 5,
                           ),
+
                           Custom_TextField(
                               Transform.scale(
                                   scale: 0.4,
@@ -220,6 +221,18 @@ class SignUp extends StatelessWidget {
                   ),
                 ],
               ),
+              SizedBox(height: MediaQuery.of(context).size.height *0.05,),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  roundedBorder_button('assets/apple.svg',(){}),
+                  SizedBox(width: 20,),
+                  roundedBorder_button('assets/google.svg',(){}),
+                  SizedBox(width: 20,),
+                  roundedBorder_button('assets/fb.svg',(){}),
+                ],
+              ),
+
               SizedBox(
                 height: 30,
               ),

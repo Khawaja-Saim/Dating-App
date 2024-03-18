@@ -189,6 +189,17 @@ class _LogInState extends State<LogIn> {
         
                 ],
               ),
+              SizedBox(height: MediaQuery.of(context).size.height *0.05,),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  roundedBorder_button('assets/apple.svg',(){}),
+                  SizedBox(width: 20,),
+                  roundedBorder_button('assets/google.svg',(){}),
+                  SizedBox(width: 20,),
+                  roundedBorder_button('assets/fb.svg',(){}),
+                ],
+              ),
               Spacer(),
               Align(
                 alignment: Alignment.bottomCenter,

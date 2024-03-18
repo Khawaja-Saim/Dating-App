@@ -2,6 +2,8 @@ import 'package:datingapp/Utils/Widgets/CustomButton.dart';
 import 'package:datingapp/const/Colors.dart';
 import 'package:flutter/material.dart';
 
+import 'Notifications.dart';
+
 class Permission extends StatelessWidget {
   const Permission({Key? key}) : super(key: key);
 
@@ -46,7 +48,12 @@ class Permission extends StatelessWidget {
                 padding: const EdgeInsets.symmetric(horizontal: 20.0),
                 child: Align(
                   alignment: Alignment.bottomCenter,
-                  child: CustomButton(text: 'I want to be notified', onPressed: () {  },
+                  child: CustomButton(text: 'I want to be notified', onPressed: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => Notifications()),
+                    );
+                  },
 
                   ),
                 ),

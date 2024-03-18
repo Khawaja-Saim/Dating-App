@@ -4,6 +4,8 @@ import 'package:flutter_svg/flutter_svg.dart';
 
 import '../../const/Colors.dart';
 import '../Discover/Discover.dart';
+import '../Favourites/Favourites.dart';
+import '../Inbox/InBox.dart';
 import '../MyProfile/MyProfile.dart';
 
 
@@ -19,8 +21,8 @@ class _MyBottomNavBarState extends State<MyBottomNavBar> {
   // Define your pages/screens here
   final List<Widget> _pages = [
     Discover(),
-    SecondScreen(),
-    ThirdScreen(),
+    Favourites(),
+    Inbox(),
     MyProfile(),
   ];
 
@@ -122,20 +124,4 @@ class _MyBottomNavBarState extends State<MyBottomNavBar> {
 
 
 
-class SecondScreen extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return Center(
-      child: Text('Search Screen',style: TextStyle(fontSize: 45,color: Colors.black),),
-    );
-  }
-}
 
-class ThirdScreen extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return Center(
-      child: Text('Profile Screen'),
-    );
-  }
-}
