@@ -293,3 +293,134 @@ Widget ActiveFriends_Widget(String photo,String name,BuildContext context) {
 }
 
 
+
+Widget DiscoveryInterests(String title,BuildContext context){
+  return Padding(
+    padding:  EdgeInsets.symmetric(horizontal: MediaQuery.of(context).size.width *0.05),
+    child: InkWell(
+      onTap: (){},
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children: [
+          Text(title,style: TextStyle(color: ColorValues.grey,fontSize: 12,fontWeight: FontWeight.w500)),
+          Text('Select > ',style: TextStyle(color: ColorValues.grey,fontSize: 12,fontWeight: FontWeight.w500))
+
+        ],
+      ),
+    ),
+  );
+}
+
+Widget BoostProfileWidget(BuildContext context){
+  return             Container(
+    // height:  MediaQuery.of(context).size.height *0.2,
+    // margin: EdgeInsets.symmetric(horizontal: 20),
+    width: MediaQuery.of(context).size.width *0.8,
+    decoration: BoxDecoration(
+        color: Color(0xffE8B5B5).withOpacity(0.4),
+        borderRadius: BorderRadius.circular(8),
+        border: Border.all(color: ColorValues.pinkmain, width: 1)),
+    child: Column(
+      children: [
+        Container(
+          height: 40,
+          width: double.infinity,
+          decoration: BoxDecoration(
+            color: ColorValues.pinkmain,
+            borderRadius: BorderRadius.only(
+                topLeft: Radius.circular(8),
+                topRight: Radius.circular(8)),
+          ),
+          child: Center(
+              child: Text(
+                'Best Value',
+                style: TextStyle(
+                    fontSize: 14,
+                    color: Colors.white,
+                    fontWeight: FontWeight.bold),
+              )),
+        ),
+        SizedBox(
+          height: 5,
+        ),
+        Center(
+            child: Text(
+              '10 Boosts',
+              style: TextStyle(
+                  fontSize: 14,
+                  color: ColorValues.pinkmain,
+                  fontWeight: FontWeight.bold),
+            )),
+        SizedBox(
+          height: 10,
+        ),
+        Container(
+          height: 60,
+          width: 55,
+          decoration: BoxDecoration(
+              color: Colors.white,
+              borderRadius: BorderRadius.circular(12)),
+          child: Transform.scale(
+              scale: 0.6,
+              child: SvgPicture.asset(
+                'assets/current.svg',
+                color: ColorValues.pinkmain,
+              )),
+        ),
+        SizedBox(
+          height: 10,
+        ),
+        Center(
+            child: Text(
+              '\$20.00/ea',
+              style: TextStyle(
+                  fontSize: 14,
+                  color: ColorValues.pinkmain,
+                  fontWeight: FontWeight.bold),
+            )),
+        SizedBox(
+          height: 10,
+        ),
+        Container(
+          height: 25,
+          width: 85,
+          decoration: BoxDecoration(
+              color: Colors.white,
+              borderRadius: BorderRadius.circular(12)),
+          child: Center(
+              child: Text('save 24%',
+                  style: TextStyle(
+                      color: ColorValues.grey,
+                      fontSize: 15,
+                      fontWeight: FontWeight.bold))),
+        ),
+        SizedBox(height: 10,),
+        Container(
+          width: 120,
+          height: 30,
+          decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(10),
+              color: ColorValues.pinkmain
+          ),
+          child: ElevatedButton(
+            onPressed: (){},
+            style: ElevatedButton.styleFrom(
+              primary: Colors.transparent,
+              elevation: 0,
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(10),
+              ),
+            ),
+            child: Text(
+              'Select',
+              style: TextStyle(color: ColorValues.grey,fontSize: 16),
+            ),
+          ),
+        ),
+        SizedBox(height: 20,)
+
+      ],
+    ),
+  );
+
+}

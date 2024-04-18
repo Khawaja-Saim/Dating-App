@@ -39,6 +39,7 @@ dependencies:
   flutter_card_swiper:
   cached_network_image:
   syncfusion_flutter_sliders:
+  carousel_slider:
 
 
 

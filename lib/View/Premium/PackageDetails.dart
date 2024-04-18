@@ -5,6 +5,8 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 
+import '../BoostProfile/BoostProfile.dart';
+
 class PackageDetails extends StatelessWidget {
   PackageDetails({Key? key}) : super(key: key);
   List<String> months = ['1', '2', '3'];
@@ -270,7 +272,12 @@ class PackageDetails extends StatelessWidget {
             ),
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 15.0),
-              child: CustomButton(text: 'Continue', onPressed: () {}),
+              child: CustomButton(text: 'Continue', onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => BoostProfile()),
+                );
+              }),
             ),
             SizedBox(height: 20,)
           ],
