@@ -94,7 +94,8 @@ class SignUp extends StatelessWidget {
                                   child:
                                       SvgPicture.asset('assets/profile.svg')),
                               'Daniel chung',
-                              context),
+                              context,
+                              (p0) {}),
                           SizedBox(
                             height: MediaQuery.of(context).size.height * 0.025,
                           ),
@@ -120,7 +121,8 @@ class SignUp extends StatelessWidget {
                                   scale: 0.4,
                                   child: SvgPicture.asset('assets/phone.svg')),
                               '+55-9154679386',
-                              context),
+                              context,
+                              (p0) {}),
                           SizedBox(
                             height: MediaQuery.of(context).size.height * 0.025,
                           ),
@@ -146,7 +148,8 @@ class SignUp extends StatelessWidget {
                                   scale: 0.4,
                                   child: SvgPicture.asset('assets/email.svg')),
                               'Danielchung@Gmail.com',
-                              context),
+                              context,
+                              (p0) {}),
                           SizedBox(
                             height: MediaQuery.of(context).size.height * 0.025,
                           ),
@@ -173,7 +176,8 @@ class SignUp extends StatelessWidget {
                                   child:
                                       SvgPicture.asset('assets/password.svg')),
                               '********',
-                              context),
+                              context,
+                              (p0) {}),
                           SizedBox(
                             height: MediaQuery.of(context).size.height * 0.025,
                           ),
@@ -194,14 +198,14 @@ class SignUp extends StatelessWidget {
                           SizedBox(
                             height: 5,
                           ),
-
                           Custom_TextField(
                               Transform.scale(
                                   scale: 0.4,
                                   child:
                                       SvgPicture.asset('assets/password.svg')),
                               '********',
-                              context),
+                              context,
+                              (p0) {}),
                           Padding(
                             padding: const EdgeInsets.symmetric(
                                 horizontal: 20.0, vertical: 15),
@@ -210,7 +214,8 @@ class SignUp extends StatelessWidget {
                               onPressed: () {
                                 Navigator.push(
                                   context,
-                                  MaterialPageRoute(builder: (context) => ProfileSetup1()),
+                                  MaterialPageRoute(
+                                      builder: (context) => ProfileSetup1()),
                                 );
                               },
                             ),
@@ -221,18 +226,23 @@ class SignUp extends StatelessWidget {
                   ),
                 ],
               ),
-              SizedBox(height: MediaQuery.of(context).size.height *0.05,),
+              SizedBox(
+                height: MediaQuery.of(context).size.height * 0.05,
+              ),
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  roundedBorder_button('assets/apple.svg',(){}),
-                  SizedBox(width: 20,),
-                  roundedBorder_button('assets/google.svg',(){}),
-                  SizedBox(width: 20,),
-                  roundedBorder_button('assets/fb.svg',(){}),
+                  roundedBorder_button('assets/apple.svg', () {}),
+                  SizedBox(
+                    width: 20,
+                  ),
+                  roundedBorder_button('assets/google.svg', () {}),
+                  SizedBox(
+                    width: 20,
+                  ),
+                  roundedBorder_button('assets/fb.svg', () {}),
                 ],
               ),
-
               SizedBox(
                 height: 30,
               ),

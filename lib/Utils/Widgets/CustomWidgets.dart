@@ -34,7 +34,8 @@ Widget backbutton(BuildContext context) {
   );
 }
 
-Widget Custom_TextField(Widget icon, String hintext, BuildContext context) {
+Widget Custom_TextField(Widget icon, String hintext, BuildContext context,
+    String? Function(String?) validator) {
   return Padding(
     padding: const EdgeInsets.symmetric(horizontal: 15.0),
     child: Container(
@@ -53,6 +54,7 @@ Widget Custom_TextField(Widget icon, String hintext, BuildContext context) {
       ),
       child: TextFormField(
         // controller: controller,
+        validator: validator,
         decoration: InputDecoration(
           contentPadding: EdgeInsets.only(top: 5),
           prefixIcon: icon,
@@ -238,84 +240,81 @@ Widget tiltimage(String img, int angle, BuildContext context) {
   );
 }
 
-Widget ActiveFriends_Widget(String photo,String name,BuildContext context) {
-  return
-    Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 5.0),
-      child: Column(children: [
-        Container(
-          height: 70,
-          width: 70,
-          child: Stack(
-            children: [
-              Container(
-                height: 70,
-                width: 70,
+Widget ActiveFriends_Widget(String photo, String name, BuildContext context) {
+  return Padding(
+    padding: const EdgeInsets.symmetric(horizontal: 5.0),
+    child: Column(children: [
+      Container(
+        height: 70,
+        width: 70,
+        child: Stack(
+          children: [
+            Container(
+              height: 70,
+              width: 70,
+              decoration: BoxDecoration(
+                  border: Border.all(color: ColorValues.pinkmain),
+                  shape: BoxShape.circle,
+                  image: DecorationImage(
+                      image: AssetImage(photo), fit: BoxFit.cover)),
+            ),
+            Align(
+              alignment: Alignment.bottomRight,
+              child: Container(
+                height: 15,
+                width: 15,
                 decoration: BoxDecoration(
-                    border: Border.all(color: ColorValues.pinkmain),
-                    shape: BoxShape.circle,
-                    image: DecorationImage(
-                        image: AssetImage(photo),
-                        fit: BoxFit.cover)),
-              ),
-              Align(
-                alignment: Alignment.bottomRight,
-                child: Container(
-                  height: 15,
-                  width: 15,
-                  decoration: BoxDecoration(
-                    border: Border.all(color: ColorValues.pinkmain),
-                    color: ColorValues.white,
-                    shape: BoxShape.circle,
-                  ),
+                  border: Border.all(color: ColorValues.pinkmain),
+                  color: ColorValues.white,
+                  shape: BoxShape.circle,
                 ),
               ),
-            ],
-          ),
+            ),
+          ],
         ),
-        SizedBox(
-          height: 4,
-        ),
-        Text(
-          name,
-          style: TextStyle(
-              color: ColorValues.grey,
-              fontSize: 15,
-              fontWeight: FontWeight.w700),
-        )
-      ]),
-    );
-
-
-
-
-
+      ),
+      SizedBox(
+        height: 4,
+      ),
+      Text(
+        name,
+        style: TextStyle(
+            color: ColorValues.grey, fontSize: 15, fontWeight: FontWeight.w700),
+      )
+    ]),
+  );
 }
 
-
-
-Widget DiscoveryInterests(String title,BuildContext context){
+Widget DiscoveryInterests(String title, BuildContext context) {
   return Padding(
-    padding:  EdgeInsets.symmetric(horizontal: MediaQuery.of(context).size.width *0.05),
+    padding: EdgeInsets.symmetric(
+        horizontal: MediaQuery.of(context).size.width * 0.05),
     child: InkWell(
-      onTap: (){},
+      onTap: () {},
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
-          Text(title,style: TextStyle(color: ColorValues.grey,fontSize: 12,fontWeight: FontWeight.w500)),
-          Text('Select > ',style: TextStyle(color: ColorValues.grey,fontSize: 12,fontWeight: FontWeight.w500))
-
+          Text(title,
+              style: TextStyle(
+                  color: ColorValues.grey,
+                  fontSize: 12,
+                  fontWeight: FontWeight.w500)),
+          Text('Select > ',
+              style: TextStyle(
+                  color: ColorValues.grey,
+                  fontSize: 12,
+                  fontWeight: FontWeight.w500))
         ],
       ),
     ),
   );
 }
 
-Widget BoostProfileWidget(BuildContext context){
-  return             Container(
+Widget BoostProfileWidget(BuildContext context) {
+  return Container(
     // height:  MediaQuery.of(context).size.height *0.2,
     // margin: EdgeInsets.symmetric(horizontal: 20),
-    width: MediaQuery.of(context).size.width *0.8,
+    width: MediaQuery.of(context).size.width * 0.8,
     decoration: BoxDecoration(
         color: Color(0xffE8B5B5).withOpacity(0.4),
         borderRadius: BorderRadius.circular(8),
@@ -328,29 +327,26 @@ Widget BoostProfileWidget(BuildContext context){
           decoration: BoxDecoration(
             color: ColorValues.pinkmain,
             borderRadius: BorderRadius.only(
-                topLeft: Radius.circular(8),
-                topRight: Radius.circular(8)),
+                topLeft: Radius.circular(8), topRight: Radius.circular(8)),
           ),
           child: Center(
               child: Text(
-                'Best Value',
-                style: TextStyle(
-                    fontSize: 14,
-                    color: Colors.white,
-                    fontWeight: FontWeight.bold),
-              )),
+            'Best Value',
+            style: TextStyle(
+                fontSize: 14, color: Colors.white, fontWeight: FontWeight.bold),
+          )),
         ),
         SizedBox(
           height: 5,
         ),
         Center(
             child: Text(
-              '10 Boosts',
-              style: TextStyle(
-                  fontSize: 14,
-                  color: ColorValues.pinkmain,
-                  fontWeight: FontWeight.bold),
-            )),
+          '10 Boosts',
+          style: TextStyle(
+              fontSize: 14,
+              color: ColorValues.pinkmain,
+              fontWeight: FontWeight.bold),
+        )),
         SizedBox(
           height: 10,
         ),
@@ -358,8 +354,7 @@ Widget BoostProfileWidget(BuildContext context){
           height: 60,
           width: 55,
           decoration: BoxDecoration(
-              color: Colors.white,
-              borderRadius: BorderRadius.circular(12)),
+              color: Colors.white, borderRadius: BorderRadius.circular(12)),
           child: Transform.scale(
               scale: 0.6,
               child: SvgPicture.asset(
@@ -372,12 +367,12 @@ Widget BoostProfileWidget(BuildContext context){
         ),
         Center(
             child: Text(
-              '\$20.00/ea',
-              style: TextStyle(
-                  fontSize: 14,
-                  color: ColorValues.pinkmain,
-                  fontWeight: FontWeight.bold),
-            )),
+          '\$20.00/ea',
+          style: TextStyle(
+              fontSize: 14,
+              color: ColorValues.pinkmain,
+              fontWeight: FontWeight.bold),
+        )),
         SizedBox(
           height: 10,
         ),
@@ -385,8 +380,7 @@ Widget BoostProfileWidget(BuildContext context){
           height: 25,
           width: 85,
           decoration: BoxDecoration(
-              color: Colors.white,
-              borderRadius: BorderRadius.circular(12)),
+              color: Colors.white, borderRadius: BorderRadius.circular(12)),
           child: Center(
               child: Text('save 24%',
                   style: TextStyle(
@@ -394,18 +388,19 @@ Widget BoostProfileWidget(BuildContext context){
                       fontSize: 15,
                       fontWeight: FontWeight.bold))),
         ),
-        SizedBox(height: 10,),
+        SizedBox(
+          height: 10,
+        ),
         Container(
           width: 120,
           height: 30,
           decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(10),
-              color: ColorValues.pinkmain
-          ),
+              color: ColorValues.pinkmain),
           child: ElevatedButton(
-            onPressed: (){},
+            onPressed: () {},
             style: ElevatedButton.styleFrom(
-              primary: Colors.transparent,
+              backgroundColor: Colors.transparent,
               elevation: 0,
               shape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(10),
@@ -413,14 +408,14 @@ Widget BoostProfileWidget(BuildContext context){
             ),
             child: Text(
               'Select',
-              style: TextStyle(color: ColorValues.grey,fontSize: 16),
+              style: TextStyle(color: ColorValues.grey, fontSize: 16),
             ),
           ),
         ),
-        SizedBox(height: 20,)
-
+        SizedBox(
+          height: 20,
+        )
       ],
     ),
   );
-
 }

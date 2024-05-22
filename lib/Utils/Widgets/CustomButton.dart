@@ -16,13 +16,11 @@ class CustomButton extends StatelessWidget {
       width: double.infinity,
       height: 50,
       decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(15),
-        color: ColorValues.pinkmain
-      ),
+          borderRadius: BorderRadius.circular(15), color: ColorValues.pinkmain),
       child: ElevatedButton(
         onPressed: onPressed,
         style: ElevatedButton.styleFrom(
-          primary: Colors.transparent,
+          backgroundColor: Colors.transparent,
           elevation: 0,
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(15),
@@ -30,7 +28,7 @@ class CustomButton extends StatelessWidget {
         ),
         child: Text(
           text,
-          style: TextStyle(color: Colors.white,fontSize: 18),
+          style: TextStyle(color: Colors.white, fontSize: 18),
         ),
       ),
     );

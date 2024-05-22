@@ -8,17 +8,35 @@ import '../../Utils/Widgets/CustomWidgets.dart';
 import '../MyBottomNavBar/MyBottomNavBar.dart';
 
 class LogIn extends StatefulWidget {
-   LogIn({Key? key}) : super(key: key);
+  LogIn({Key? key}) : super(key: key);
 
   @override
   State<LogIn> createState() => _LogInState();
 }
 
 class _LogInState extends State<LogIn> {
-   bool _isChecked = false;
+  bool _isChecked = false;
+  final String pattern =
+      r"^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]"
+      r"{0,253}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]"
+      r"{0,253}[a-zA-Z0-9])?)*$";
+  //
+  String? validateEmail(String? value) {
+    String pattern =
+        r"^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]"
+        r"{0,253}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]"
+        r"{0,253}[a-zA-Z0-9])?)*$";
+    RegExp regex = RegExp(pattern);
+    if (value == null || value.isEmpty || !regex.hasMatch(value)) {
+      return 'Enter a valid email address';
+    }
 
-   @override
+    return null;
+  }
+
+  @override
   Widget build(BuildContext context) {
+    RegExp regex = RegExp(pattern);
     return Scaffold(
       backgroundColor: ColorValues.backgroundcolor,
       body: SingleChildScrollView(
@@ -30,18 +48,22 @@ class _LogInState extends State<LogIn> {
               Stack(
                 children: [
                   Container(
-                    height: MediaQuery.of(context).size.height*0.35,
+                    height: MediaQuery.of(context).size.height * 0.35,
                     width: double.infinity,
                     decoration: BoxDecoration(
-                      color: ColorValues.pinkmain,
-                      borderRadius: BorderRadius.only(bottomLeft: Radius.circular(32),bottomRight:Radius.circular(32) )
-                    ),
+                        color: ColorValues.pinkmain,
+                        borderRadius: BorderRadius.only(
+                            bottomLeft: Radius.circular(32),
+                            bottomRight: Radius.circular(32))),
                     child: Column(
                       children: [
-                        SizedBox(height: MediaQuery.of(context).size.height*0.06,),
-        
+                        SizedBox(
+                          height: MediaQuery.of(context).size.height * 0.06,
+                        ),
                         backbutton(context),
-                        SizedBox(height: MediaQuery.of(context).size.height*0.06,),
+                        SizedBox(
+                          height: MediaQuery.of(context).size.height * 0.06,
+                        ),
                         Text(
                           'LOG IN',
                           style: TextStyle(
@@ -49,23 +71,25 @@ class _LogInState extends State<LogIn> {
                               fontWeight: FontWeight.w700,
                               fontSize: 30),
                         ),
-        
                       ],
                     ),
                   ),
                   Padding(
-                    padding:  EdgeInsets.only(left: MediaQuery.of(context).size.width *0.1,right: MediaQuery.of(context).size.width *0.1,top: MediaQuery.of(context).size.height *0.26),
+                    padding: EdgeInsets.only(
+                        left: MediaQuery.of(context).size.width * 0.1,
+                        right: MediaQuery.of(context).size.width * 0.1,
+                        top: MediaQuery.of(context).size.height * 0.26),
                     child: Container(
-                      height: MediaQuery.of(context).size.height *0.44,
+                      height: MediaQuery.of(context).size.height * 0.44,
                       width: double.infinity,
                       decoration: BoxDecoration(
                           color: ColorValues.white,
-                          borderRadius: BorderRadius.circular(20)
-                      ),
+                          borderRadius: BorderRadius.circular(20)),
                       child: Column(
                         children: [
                           Padding(
-                            padding: const EdgeInsets.symmetric(horizontal: 25.0,vertical: 15),
+                            padding: const EdgeInsets.symmetric(
+                                horizontal: 25.0, vertical: 15),
                             child: Text(
                               'Simply enter your email ID to log in to your account.',
                               style: TextStyle(
@@ -89,15 +113,19 @@ class _LogInState extends State<LogIn> {
                               ),
                             ),
                           ),
-                          SizedBox(height: 5,),
-                          Custom_TextField(Transform.scale(
-                              scale: 0.4,
-                              child: SvgPicture.asset('assets/email.svg')),'Danielchung@Gmail.com',context),
-        
                           SizedBox(
-                            height: MediaQuery.of(context).size.height *0.025,
+                            height: 5,
                           ),
-        
+                          Custom_TextField(
+                              Transform.scale(
+                                  scale: 0.4,
+                                  child: SvgPicture.asset('assets/email.svg')),
+                              'Danielchung@Gmail.com',
+                              context,
+                              (p0) {}),
+                          SizedBox(
+                            height: MediaQuery.of(context).size.height * 0.025,
+                          ),
                           Padding(
                             padding: const EdgeInsets.only(left: 22.0),
                             child: Align(
@@ -112,28 +140,39 @@ class _LogInState extends State<LogIn> {
                               ),
                             ),
                           ),
-                          SizedBox(height: 5,),
-                          Custom_TextField(Transform.scale(
-                              scale: 0.4,
-                              child: SvgPicture.asset('assets/password.svg')),'********',context),
-                          SizedBox(height: 5,),
+                          SizedBox(
+                            height: 5,
+                          ),
+                          Custom_TextField(
+                              Transform.scale(
+                                  scale: 0.4,
+                                  child:
+                                      SvgPicture.asset('assets/password.svg')),
+                              '********',
+                              context,
+                              (p0) {}),
+                          SizedBox(
+                            height: 5,
+                          ),
                           Padding(
-                            padding: const EdgeInsets.symmetric(horizontal: 20.0),
+                            padding:
+                                const EdgeInsets.symmetric(horizontal: 20.0),
                             child: Row(
                               children: [
                                 Container(
-                            height: 20,
-                                  width: 20,// Adjust the scale factor as needed to decrease the size
+                                  height: 20,
+                                  width:
+                                      20, // Adjust the scale factor as needed to decrease the size
                                   child: Theme(
                                     data: ThemeData(
                                       unselectedWidgetColor: ColorValues.grey,
                                       // Border color
-                                      toggleableActiveColor:
-                                      ColorValues.grey, // Fill color when checked
+                                      toggleableActiveColor: ColorValues
+                                          .grey, // Fill color when checked
                                     ),
                                     child: Checkbox(
                                       side: BorderSide(color: ColorValues.grey),
-        
+
                                       activeColor: ColorValues.pinkmain,
                                       // The color to use when this checkbox is checked.
                                       value: _isChecked,
@@ -146,7 +185,9 @@ class _LogInState extends State<LogIn> {
                                     ),
                                   ),
                                 ),
-                                SizedBox(width: 3,),
+                                SizedBox(
+                                  width: 3,
+                                ),
                                 Text(
                                   'Remember me',
                                   style: TextStyle(
@@ -173,31 +214,40 @@ class _LogInState extends State<LogIn> {
                             ),
                           ),
                           Padding(
-                            padding: const EdgeInsets.symmetric(horizontal: 20.0,vertical: 15),
-                            child: CustomButton(text: 'Log In', onPressed: () {
-                              Navigator.push(
-                                context,
-                                MaterialPageRoute(builder: (context) => MyBottomNavBar()),
-                              );
-                            },),
+                            padding: const EdgeInsets.symmetric(
+                                horizontal: 20.0, vertical: 15),
+                            child: CustomButton(
+                              text: 'Log In',
+                              onPressed: () {
+                                Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                      builder: (context) => MyBottomNavBar()),
+                                );
+                              },
+                            ),
                           ),
-        
                         ],
                       ),
                     ),
                   ),
-        
                 ],
               ),
-              SizedBox(height: MediaQuery.of(context).size.height *0.05,),
+              SizedBox(
+                height: MediaQuery.of(context).size.height * 0.05,
+              ),
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  roundedBorder_button('assets/apple.svg',(){}),
-                  SizedBox(width: 20,),
-                  roundedBorder_button('assets/google.svg',(){}),
-                  SizedBox(width: 20,),
-                  roundedBorder_button('assets/fb.svg',(){}),
+                  roundedBorder_button('assets/apple.svg', () {}),
+                  SizedBox(
+                    width: 20,
+                  ),
+                  roundedBorder_button('assets/google.svg', () {}),
+                  SizedBox(
+                    width: 20,
+                  ),
+                  roundedBorder_button('assets/fb.svg', () {}),
                 ],
               ),
               Spacer(),
@@ -214,9 +264,11 @@ class _LogInState extends State<LogIn> {
                           fontSize: 15),
                       textAlign: TextAlign.center,
                     ),
-                    SizedBox(width: 5,),
+                    SizedBox(
+                      width: 5,
+                    ),
                     InkWell(
-                      onTap: (){
+                      onTap: () {
                         Navigator.push(
                           context,
                           MaterialPageRoute(builder: (context) => SignUp()),
@@ -234,7 +286,9 @@ class _LogInState extends State<LogIn> {
                   ],
                 ),
               ),
-              SizedBox(height: MediaQuery.of(context).size.height*0.03,)
+              SizedBox(
+                height: MediaQuery.of(context).size.height * 0.03,
+              )
             ],
           ),
         ),

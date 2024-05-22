@@ -7,7 +7,7 @@ import 'package:flutter_svg/svg.dart';
 import 'PackageDetails.dart';
 
 class ManageSubscription extends StatefulWidget {
-   ManageSubscription({Key? key}) : super(key: key);
+  ManageSubscription({Key? key}) : super(key: key);
 
   @override
   State<ManageSubscription> createState() => _ManageSubscriptionState();
@@ -39,36 +39,33 @@ class _ManageSubscriptionState extends State<ManageSubscription> {
           ),
         ),
       ),
-
-
       body: Padding(
         padding: const EdgeInsets.only(top: 30.0),
         child: Align(
           alignment: Alignment.topCenter,
           child: Container(
-            height: MediaQuery.of(context).size.height *0.8,
-            width:  MediaQuery.of(context).size.width *0.9,
-
+            height: MediaQuery.of(context).size.height * 0.8,
+            width: MediaQuery.of(context).size.width * 0.9,
             child: Stack(
               children: [
                 Container(
-                  height: MediaQuery.of(context).size.height *0.8,
-                  width:  MediaQuery.of(context).size.width *0.9,
+                  height: MediaQuery.of(context).size.height * 0.8,
+                  width: MediaQuery.of(context).size.width * 0.9,
                   decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(15),
-                      color: Colors.black.withOpacity(0.02)
-                  ),
+                      color: Colors.black.withOpacity(0.02)),
                 ),
                 Container(
-                  height: MediaQuery.of(context).size.height *0.8,
-                  width:  MediaQuery.of(context).size.width *0.9,
+                  height: MediaQuery.of(context).size.height * 0.8,
+                  width: MediaQuery.of(context).size.width * 0.9,
                   decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(15),
-                    color: ColorValues.pinkmain
-                  ),
+                      borderRadius: BorderRadius.circular(15),
+                      color: ColorValues.pinkmain),
                   child: Column(
                     children: [
-                      SizedBox(height: 20,),
+                      SizedBox(
+                        height: 20,
+                      ),
                       Text(
                         'Go Premium',
                         style: TextStyle(
@@ -76,7 +73,9 @@ class _ManageSubscriptionState extends State<ManageSubscription> {
                             fontSize: 20,
                             fontWeight: FontWeight.w700),
                       ),
-                      SizedBox(height: MediaQuery.of(context).size.height *0.02,),
+                      SizedBox(
+                        height: MediaQuery.of(context).size.height * 0.02,
+                      ),
                       Container(
                         width: 40,
                         height: 40,
@@ -99,52 +98,64 @@ class _ManageSubscriptionState extends State<ManageSubscription> {
                           ),
                         ),
                       ),
-                      SizedBox(height: MediaQuery.of(context).size.height *0.02,),
+                      SizedBox(
+                        height: MediaQuery.of(context).size.height * 0.02,
+                      ),
                       Text(
                         'Like Without Limits',
                         style: TextStyle(
                             color: ColorValues.grey,
-                            fontSize: 16  ,
+                            fontSize: 16,
                             fontWeight: FontWeight.w400),
                       ),
-                      SizedBox(height: MediaQuery.of(context).size.height *0.02,),
+                      SizedBox(
+                        height: MediaQuery.of(context).size.height * 0.02,
+                      ),
                       Padding(
                         padding: const EdgeInsets.symmetric(horizontal: 15.0),
                         child: Text(
                           'Increase your chances of matching by liking as many people as you want',
                           style: TextStyle(
                               color: ColorValues.grey,
-                              fontSize: 11  ,
-                              fontWeight: FontWeight.w400),textAlign: TextAlign.center,
+                              fontSize: 11,
+                              fontWeight: FontWeight.w400),
+                          textAlign: TextAlign.center,
                         ),
                       ),
-                      SizedBox(height: MediaQuery.of(context).size.height *0.02,),
-
+                      SizedBox(
+                        height: MediaQuery.of(context).size.height * 0.02,
+                      ),
                       Row(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
-                          buildSelectableContainer(0,'3','9.99'),
-                          SizedBox(width: 5,),
-                          buildSelectableContainer(1,'6','5.99'),
-                          SizedBox(width: 5,),
-
-                          buildSelectableContainer(2,'12','14.99'),
+                          buildSelectableContainer(0, '3', '9.99'),
+                          SizedBox(
+                            width: 5,
+                          ),
+                          buildSelectableContainer(1, '6', '5.99'),
+                          SizedBox(
+                            width: 5,
+                          ),
+                          buildSelectableContainer(2, '12', '14.99'),
                         ],
                       ),
-
-                      SizedBox(height: MediaQuery.of(context).size.height *0.05,),
+                      SizedBox(
+                        height: MediaQuery.of(context).size.height * 0.05,
+                      ),
                       Padding(
                         padding: const EdgeInsets.symmetric(horizontal: 15.0),
                         child: Text(
                           'By tapping “Continue”. you agree to our Terms and your Apple ID will be charged. Your subscription will automatically renew at the same price and package length until you cancel in your App Store account.',
                           style: TextStyle(
                               color: ColorValues.grey,
-                              fontSize: 11  ,
-                              fontWeight: FontWeight.w400),textAlign: TextAlign.center,
+                              fontSize: 11,
+                              fontWeight: FontWeight.w400),
+                          textAlign: TextAlign.center,
                         ),
                       ),
-                      SizedBox(height: MediaQuery.of(context).size.height *0.07,),
-
+                      SizedBox(
+                        height: MediaQuery.of(context).size.height * 0.07,
+                      ),
                       Padding(
                         padding: const EdgeInsets.symmetric(horizontal: 15.0),
                         child: Container(
@@ -152,17 +163,17 @@ class _ManageSubscriptionState extends State<ManageSubscription> {
                           height: 50,
                           decoration: BoxDecoration(
                               borderRadius: BorderRadius.circular(15),
-                              color: ColorValues.lightpink
-                          ),
+                              color: ColorValues.lightpink),
                           child: ElevatedButton(
-                            onPressed: (){
+                            onPressed: () {
                               Navigator.push(
                                 context,
-                                MaterialPageRoute(builder: (context) => PackageDetails()),
+                                MaterialPageRoute(
+                                    builder: (context) => PackageDetails()),
                               );
                             },
                             style: ElevatedButton.styleFrom(
-                              primary: Colors.transparent,
+                              backgroundColor: Colors.transparent,
                               elevation: 0,
                               shape: RoundedRectangleBorder(
                                 borderRadius: BorderRadius.circular(15),
@@ -170,30 +181,28 @@ class _ManageSubscriptionState extends State<ManageSubscription> {
                             ),
                             child: Text(
                               'Continue',
-                              style: TextStyle(color: Colors.grey,fontSize: 18),
+                              style:
+                                  TextStyle(color: Colors.grey, fontSize: 18),
                             ),
                           ),
                         ),
-                      )                    ],
+                      )
+                    ],
                   ),
                 ),
-
               ],
             ),
           ),
         ),
-
       ),
-
-
     );
   }
 
-  Widget buildSelectableContainer(int index,String duration,String amount) {
+  Widget buildSelectableContainer(int index, String duration, String amount) {
     bool isSelected = selectedContainerIndex == index;
 
     return InkWell(
-      onTap: (){
+      onTap: () {
         print('object');
         setState(() {
           selectedContainerIndex = index;
