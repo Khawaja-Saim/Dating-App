@@ -167,7 +167,7 @@ class _LogInState extends State<LogIn> {
                                     data: ThemeData(
                                       unselectedWidgetColor: ColorValues.grey,
                                       // Border color
-                                      toggleableActiveColor: ColorValues
+                                      primaryColor: ColorValues
                                           .grey, // Fill color when checked
                                     ),
                                     child: Checkbox(
